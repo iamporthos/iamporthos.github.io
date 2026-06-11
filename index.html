@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Porthos — Industrial Designer</title>
+  <meta name="description" content="Industrial design portfolio of Porthos — a decade of making things people can hold, from paintings to load-tested furniture." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&family=Archivo:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="mark" href="#top">PORTHOS<span>.</span></a>
+    <div class="nav-links">
+      <a href="#journey">Journey</a>
+      <a href="#graphics">Logos &amp; Graphics</a>
+      <a href="#vault">Vault</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ================= HERO ================= -->
+  <header class="hero" id="top">
+    <div class="wrap">
+      <div class="spec-label">Industrial Designer · Markham, Ontario</div>
+      <h1>I design things,<br />then I <em>build them</em><br />for real.</h1>
+      <p class="lede">
+        A decade of making — from paintings and client logos to CNC-milled joinery
+        and a stool load-tested at 300+&nbsp;lbs. This is the journey, in order.
+      </p>
+    </div>
+    <div class="scroll-cue">Scroll the timeline ↓</div>
+  </header>
+
+  <!-- ================= TIMELINE ================= -->
+  <section class="timeline-section" id="journey">
+    <div class="timeline-head">
+      <div class="spec-label">2015 → 2026</div>
+      <h2>The Journey</h2>
+    </div>
+
+    <div class="timeline" id="timeline">
+      <svg id="weave-svg" aria-hidden="true"><path id="weave-path" /></svg>
+      <!-- entries injected by main.js -->
+    </div>
+  </section>
+
+  <!-- ================= GRAPHICS ================= -->
+  <section class="graphics-section" id="graphics">
+    <div class="wrap">
+      <div class="spec-label">Side quest, ongoing since 2015</div>
+      <h2>Logos &amp; Graphics</h2>
+      <p class="sub">
+        Identity work and graphic pieces made alongside the product design —
+        logos for real clients and t-shirt graphics for fun.
+      </p>
+      <div class="graphics-grid" id="graphics-grid">
+        <!-- injected by main.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= VAULT ================= -->
+  <section class="vault-section" id="vault">
+    <div class="wrap">
+      <div class="spec-label">Restricted drawings</div>
+      <h2>The Vault</h2>
+      <p class="sub">
+        Active ventures in development. If you have the password, you know why you have it.
+      </p>
+      <div class="vault-form" id="vault-form">
+        <input type="password" id="vault-input" placeholder="password" autocomplete="off" aria-label="Vault password" />
+        <button id="vault-btn" type="button">Unlock</button>
+      </div>
+      <div class="vault-error" id="vault-error" role="status"></div>
+      <div class="vault-grid" id="vault-grid">
+        <!-- injected after unlock -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer" id="contact">
+    <div class="wrap">
+      <div>
+        <div class="spec-label">Get in touch</div>
+        <h2>Let's make something<br />worth holding.</h2>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:hello@example.com" id="email-link">hello@example.com</a>
+        <a href="https://www.linkedin.com/in/porthos" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/iamporthos" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <div class="fine">© 2026 Porthos · Industrial &amp; Product Design · Built by hand, like everything else here.</div>
+    </div>
+  </footer>
+
+  <script src="js/projects.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
