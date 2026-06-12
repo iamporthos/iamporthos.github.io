@@ -161,6 +161,7 @@ if (vaultBtn) {
           <h3>${v.title}</h3>
           <div class="v-year">${v.year}</div>
           <p>${v.blurb}</p>
+          ${v.link ? `<a class="v-link" href="${v.link}" target="_blank" rel="noopener">${v.linkLabel || v.link}</a>` : ""}
         </div>`
       ).join("");
       grid.classList.add("open");
