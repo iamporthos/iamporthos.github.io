@@ -59,10 +59,10 @@ const PROJECTS = [
       "A phone and tablet stand made from cardboard with a rubber grip — documented from first sketch to final working prototype. The project where industrial design clicked.",
     body: [
       "Dost is a phone and tablet stand built from cardboard with a rubber grip — a cheap material asked to do a serious job. The constraint was the point: if it works in cardboard, the thinking is sound.",
-      "The process is documented end to end: ideation sketches, form studies, and a final physical prototype that holds a device at a usable angle without sliding. It set the pattern for everything since — sketch it, build it, test it for real."
+      "The process is documented end to end: ideation sketches, form studies, a step-by-step assembly instruction graphic, and a final physical prototype that holds a device at a usable angle without sliding. It set the pattern for everything since — sketch it, build it, test it for real."
     ],
-    specs: { Materials: "Cardboard, rubber grip", Role: "Industrial Designer", Deliverables: "Sketches → final prototype" },
-    images: ["dost-sketches.jpg", "dost-process.jpg", "dost-prototype.jpg"]
+    specs: { Materials: "Cardboard, rubber grip", Role: "Industrial Designer", Deliverables: "Sketches, assembly instructions, final prototype" },
+    images: ["dost-sketches.jpg", "dost-process.jpg", "dost-instructions.jpg", "dost-prototype.jpg"]
   },
   {
     id: "luvmy",
@@ -77,7 +77,7 @@ const PROJECTS = [
       "This was the first project with a complete professional document trail: ideation sketches, a proper technical drawing, a how-to-use diagram for the end user, and final renders. Process became the product."
     ],
     specs: { User: "Children", Role: "Industrial Designer", Deliverables: "Sketches, technical drawing, usage diagram, renders" },
-    credit: "Poster: original Danbo figure photograph by [photographer — credit to be added]; edited by Porthos. Non-commercial portfolio use.",
+    credit: "Poster: original Danbo figure photograph sourced from Google years ago — photographer unknown; full credit to the original author. Edited by Porthos. Non-commercial portfolio use.",
     images: ["luvmy-sketches.jpg", "luvmy-technical.jpg", "luvmy-howto.jpg", "luvmy-render.jpg", "luvmy-poster.jpg"]
   },
   {
