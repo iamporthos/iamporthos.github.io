@@ -28,9 +28,11 @@
     [data-tl] [data-text]{order:0!important;text-align:left!important;justify-self:start!important;max-width:100%!important;}
     [data-tl] [data-text] p{margin-left:0!important;}
     [data-thread]{opacity:.18!important;}
+    [data-featgrid]{grid-template-columns:1fr!important;gap:30px!important;}
+    [data-flowgrid]{grid-template-columns:1fr!important;margin-top:52px!important;}
   }
   @media(max-width:920px){
-    [data-vault-grid]{grid-template-columns:1fr!important;}
+    [data-vault-grid]{grid-template-columns:1fr!important;max-width:420px!important;}
     [data-foot]{flex-direction:column!important;align-items:flex-start!important;}
   }
   @media(prefers-reduced-motion:reduce){*{animation:none!important;}html{scroll-behavior:auto;}}
@@ -53,6 +55,7 @@
   <nav style="position:fixed;top:14px;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:0 26px;pointer-events:none">
     <a href="#top" style="pointer-events:auto;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:20px;color:#F5EFD9;text-decoration:none;background:rgba(12,30,19,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:10px 18px;border-radius:999px">PORTHOS<span style="color:var(--accent,#C9A84C)">.</span></a>
     <div data-navlinks style="pointer-events:auto;display:flex;gap:26px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;background:rgba(12,30,19,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:13px 26px;border-radius:999px">
+      <a href="#work" style="color:#ECE3C0;text-decoration:none">Work</a>
       <a href="#journey" style="color:#ECE3C0;text-decoration:none">Journey</a>
       <a href="#graphics" style="color:#ECE3C0;text-decoration:none">Graphics</a>
       <a href="#vault" style="color:#ECE3C0;text-decoration:none">Vault</a>
@@ -79,12 +82,85 @@
     </sc-if>
   </header>
 
+  <!-- ============ FEATURED ============ -->
+  <section id="work" style="position:relative;padding:40px 0 40px;z-index:2">
+    <div data-reveal="1" data-k="fh" style="max-width:1100px;margin:0 auto 60px;padding:0 32px;transition:opacity 1s cubic-bezier(.16,.84,.28,1),transform 1s cubic-bezier(.16,.84,.28,1),filter 1s;{{ headFeat }}">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent,#C9A84C)">✦ start here</div>
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(2.2rem,5.5vw,3.8rem);line-height:1;letter-spacing:-.01em;color:#F5EFD9;margin:14px 0 0">Selected <em style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:var(--accent,#C9A84C)">work</em></h2>
+      <p style="max-width:54ch;margin:16px 0 0;opacity:.8;text-wrap:pretty">One build taken all the way down, and two process walkthroughs — each one framed around what it lets someone actually do. The full ten-stop journey follows below.</p>
+    </div>
+
+    <div data-reveal="1" data-k="f0" style="max-width:1100px;margin:0 auto;padding:0 32px;transition:opacity 1.1s cubic-bezier(.16,.84,.28,1),transform 1.1s cubic-bezier(.16,.84,.28,1),filter 1.1s;{{ featReveal }}">
+      <div style="display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:center" data-featgrid>
+        <div>
+          <button onClick="{{ featOpen }}" style="display:block;width:100%;padding:0;border:none;background:none;cursor:pointer">
+            <div style="animation:floaty 8s ease-in-out infinite">
+              <div style="position:relative;aspect-ratio:4/3.2;width:100%;overflow:hidden;border-radius:58% 42% 46% 54% / 48% 56% 44% 52%;box-shadow:0 40px 100px rgba(0,0,0,.52);transition:transform .5s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.03)">
+                <img src="images/springy-final.jpg" alt="Springy stool" style="width:100%;height:100%;object-fit:cover;display:block">
+                <div style="position:absolute;inset:0;background:radial-gradient(120% 90% at 30% 20%,rgba(236,227,192,.1),transparent 55%);pointer-events:none"></div>
+              </div>
+            </div>
+          </button>
+        </div>
+        <div>
+          <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:19px;color:var(--accent,#C9A84C)">the case study</div>
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(2.2rem,5vw,3.4rem);color:#F5EFD9;margin:8px 0 14px;line-height:.98;letter-spacing:-.02em">Springy</h3>
+          <p style="opacity:.88;max-width:44ch;text-wrap:pretty;margin:0">Seats two in the footprint of one stool, then stacks away when it isn't needed — built from off-the-shelf metal rod and ratchet straps, so the whole thing is sourceable without custom tooling.</p>
+          <p style="margin:14px 0 0;max-width:44ch;font-family:'Instrument Serif',serif;font-style:italic;font-size:19px;color:var(--accent,#C9A84C);text-wrap:pretty">And the capacity is verified, not claimed: I'm over 300&nbsp;lbs, and I sat on it. It held.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:14px 34px;margin-top:26px">
+            <div>
+              <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2rem;line-height:1;color:var(--accent,#C9A84C)">300+</div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;opacity:.7;margin-top:5px">lbs, load-tested</div>
+            </div>
+            <div>
+              <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2rem;line-height:1;color:var(--accent,#C9A84C)">2</div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;opacity:.7;margin-top:5px">seats, stackable</div>
+            </div>
+            <div>
+              <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2rem;line-height:1;color:var(--accent,#C9A84C)">5</div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;opacity:.7;margin-top:5px">stages, documented</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:28px">
+            <sc-for list="{{ featStrip }}" as="s">
+              <button onClick="{{ s.onClick }}" style="flex:1;padding:0;border:none;background:#0C1E13;border-radius:16px;overflow:hidden;cursor:zoom-in;aspect-ratio:1;box-shadow:0 12px 30px rgba(0,0,0,.3)">
+                <img src="{{ s.src }}" alt="Springy process" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s ease" style-hover="transform:scale(1.08)">
+              </button>
+            </sc-for>
+          </div>
+          <button onClick="{{ featOpen }}" style="display:inline-block;margin-top:24px;font-family:'Instrument Serif',serif;font-style:italic;font-size:20px;color:var(--accent,#C9A84C);background:none;border:none;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px">read the full build →</button>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;margin-top:80px" data-flowgrid>
+        <sc-for list="{{ flows }}" as="f">
+          <div data-reveal="1" data-k="{{ f.k }}" style="background:rgba(236,227,192,.05);border-radius:30px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 26px 70px rgba(0,0,0,.3);transition:opacity 1s cubic-bezier(.16,.84,.28,1),transform 1s cubic-bezier(.16,.84,.28,1),filter 1s;{{ f.reveal }}">
+            <div style="height:210px;flex:none;overflow:hidden;border-radius:24px;margin:12px 12px 0;background:#0C1E13">
+              <img src="{{ f.img }}" alt="{{ f.title }}" loading="lazy" style="width:100%;height:210px;object-fit:cover;display:block">
+            </div>
+            <div style="padding:22px 26px 28px;display:flex;flex-direction:column;flex:1">
+              <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:17px;color:var(--accent,#C9A84C)">{{ f.kicker }}</div>
+              <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.6rem;color:#F5EFD9;margin:5px 0 10px;line-height:1.05">{{ f.title }}</h3>
+              <p style="font-size:15px;opacity:.85;margin:0;text-wrap:pretty">{{ f.blurb }}</p>
+              <sc-if value="{{ f.isInternal }}" hint-placeholder-val="{{ true }}">
+                <button onClick="{{ f.onOpen }}" style="margin-top:18px;align-self:flex-start;font-family:'Instrument Serif',serif;font-style:italic;font-size:18px;color:var(--accent,#C9A84C);background:none;border:none;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px">{{ f.cta }}</button>
+              </sc-if>
+              <sc-if value="{{ f.isExternal }}" hint-placeholder-val="{{ false }}">
+                <a href="{{ f.href }}" target="_blank" rel="noopener" style="margin-top:18px;align-self:flex-start;font-family:'Instrument Serif',serif;font-style:italic;font-size:18px;color:var(--accent,#C9A84C);text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px">{{ f.cta }}</a>
+              </sc-if>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ JOURNEY ============ -->
   <section id="journey" style="position:relative;padding:60px 0 90px;z-index:2">
     <div data-reveal="1" data-k="hj" style="max-width:1100px;margin:0 auto 110px;padding:0 32px;text-align:center;transition:opacity 1s cubic-bezier(.16,.84,.28,1),transform 1s cubic-bezier(.16,.84,.28,1),filter 1s;{{ headJourney }}">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent,#C9A84C)">✦ 2015 → 2026 · ten stops</div>
-      <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(2.2rem,5.5vw,3.8rem);line-height:1;letter-spacing:-.01em;color:#F5EFD9;margin:14px 0 0">The <em style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:var(--accent,#C9A84C)">journey</em></h2>
-      <p style="max-width:54ch;margin:16px auto 0;opacity:.8;text-wrap:pretty">Every stop was sketched, then built for real. Open any piece to read the full drawing set.</p>
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(2.2rem,5.5vw,3.8rem);line-height:1;letter-spacing:-.01em;color:#F5EFD9;margin:14px 0 0">The full <em style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:var(--accent,#C9A84C)">journey</em></h2>
+      <p style="max-width:54ch;margin:16px auto 0;opacity:.8;text-wrap:pretty">A painter in 2015 who now load-tests furniture. Every stop was sketched, then built for real — open any piece to read the full drawing set.</p>
     </div>
 
     <div style="position:relative;max-width:1100px;margin:0 auto;padding:0 32px">
@@ -112,6 +188,7 @@
             <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent,#C9A84C);margin-top:16px">✦ {{ item.category }}</div>
             <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(1.6rem,3.2vw,2.3rem);color:#F5EFD9;margin:10px 0 12px;line-height:1.04">{{ item.title }}</h3>
             <p style="opacity:.86;text-wrap:pretty;{{ item.pStyle }}">{{ item.summary }}</p>
+            <p style="margin:14px 0 0;font-family:'Instrument Serif',serif;font-style:italic;font-size:17.5px;color:var(--accent,#C9A84C);opacity:.92;text-wrap:pretty;{{ item.pStyle }}">{{ item.value }}</p>
             <button onClick="{{ item.onOpen }}" style="display:inline-block;margin-top:16px;font-family:'Instrument Serif',serif;font-style:italic;font-size:19px;color:var(--accent,#C9A84C);background:none;border:none;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px">open this piece →</button>
           </div>
         </article>
@@ -125,7 +202,7 @@
     <div data-reveal="1" data-k="hg" style="max-width:1100px;margin:0 auto;padding:0 32px;text-align:center;transition:opacity 1s cubic-bezier(.16,.84,.28,1),transform 1s cubic-bezier(.16,.84,.28,1),filter 1s;{{ headGfx }}">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#A9863B">✦ side quest, ongoing since 2015</div>
       <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(2.2rem,5vw,3.6rem);line-height:1;letter-spacing:-.01em;color:#0F2417;margin:12px 0 0">Logos &amp; <em style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#A9863B">graphics</em></h2>
-      <p style="max-width:58ch;opacity:.78;margin:14px auto 0;text-wrap:pretty">Identity work and graphic pieces made alongside the product design — logos for real clients, t-shirt graphics for fun.</p>
+      <p style="max-width:58ch;opacity:.78;margin:14px auto 0;text-wrap:pretty">Identity work and graphic pieces made alongside the product design — logo studies, client briefs, and t-shirt graphics for the fun of it.</p>
     </div>
     <div style="max-width:1150px;margin:64px auto 0;padding:0 32px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:34px 30px">
       <sc-for list="{{ graphics }}" as="g">
@@ -155,12 +232,12 @@
       </sc-if>
 
       <sc-if value="{{ vaultOpen }}" hint-placeholder-val="{{ false }}">
-        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:17px;color:var(--accent,#C9A84C);margin-bottom:6px">✦ access granted — four files</div>
-        <div data-vault-grid style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;margin-top:34px;text-align:left">
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:17px;color:var(--accent,#C9A84C);margin-bottom:6px">✦ access granted — three files</div>
+        <div data-vault-grid style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;margin-top:34px;text-align:left">
           <sc-for list="{{ vault }}" as="v">
             <div style="background:rgba(236,227,192,.05);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:30px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 26px 70px rgba(0,0,0,.35)">
               <div style="height:180px;flex:none;overflow:hidden;border-radius:24px;margin:12px 12px 0;background:#0C1E13">
-                <img src="{{ v.img }}" alt="{{ v.title }}" style="width:100%;height:180px;object-fit:cover;object-position:top center;display:block">
+                <img src="{{ v.img }}" alt="{{ v.title }}" loading="lazy" style="width:100%;height:180px;object-fit:cover;object-position:top center;display:block">
               </div>
               <div style="padding:22px 24px 26px;display:flex;flex-direction:column;flex:1">
                 <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.35rem;color:#F5EFD9;margin:0">{{ v.title }}</h3>
@@ -211,6 +288,11 @@
           </sc-for>
         </div>
 
+        <div style="max-width:66ch;margin-bottom:40px;padding:22px 26px;border-radius:22px;background:rgba(201,168,76,.09)">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent,#C9A84C);margin-bottom:8px">the value</div>
+          <div style="font-family:'Instrument Serif',serif;font-size:clamp(1.1rem,2.1vw,1.35rem);line-height:1.5;color:#F5EFD9;text-wrap:pretty">{{ openValue }}</div>
+        </div>
+
         <div style="max-width:66ch;margin-bottom:54px">
           <sc-for list="{{ openBody }}" as="para">
             <p style="margin:0 0 20px;opacity:.9;text-wrap:pretty">{{ para }}</p>
@@ -250,7 +332,7 @@
 
   <!-- ============ LIGHTBOX ============ -->
   <sc-if value="{{ hasLightbox }}" hint-placeholder-val="{{ false }}">
-    <div onClick="{{ closeLightbox }}" style="position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;background:rgba(8,18,12,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:26px;cursor:zoom-out">
+    <div data-lightbox="1" onClick="{{ closeLightbox }}" style="position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;background:rgba(8,18,12,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:26px;cursor:zoom-out">
       <img src="{{ lightboxSrc }}" alt="" loading="lazy" style="max-width:94vw;max-height:90vh;object-fit:contain;border-radius:20px;box-shadow:0 30px 100px rgba(0,0,0,.55);display:block">
     </div>
   </sc-if>
@@ -333,6 +415,20 @@ class Component extends DCLogic {
       if (ov) ov.scrollTop = 0;
     }
     this._lastOpen = this.state.open;
+    this._forceLoad();
+  }
+
+  _forceLoad() {
+    setTimeout(() => {
+      document.querySelectorAll("[data-vault-grid] img, #__reader img, [data-lightbox] img").forEach((im) => {
+        if (im.naturalWidth > 0) return;
+        const s = im.getAttribute("src");
+        if (!s || s.indexOf("{{") !== -1) return;
+        im.loading = "eager";
+        im.src = "";
+        im.src = s;
+      });
+    }, 40);
   }
 
   componentWillUnmount() {
@@ -362,15 +458,27 @@ class Component extends DCLogic {
     const PROJECTS = [
       { id:"koiworld", year:"2015", category:"Art", title:"Futuristic Koiworld", tagline:"Where it started: paint, depth, and an audience that looked twice.", summary:"A painting of a 3D koi pond on a vertical board — flat surface, dimensional illusion. Before any product work, this was the first lesson in making people stop and look.", body:["Futuristic Koiworld was born out of necessity: leftover acrylic and spare plywood boards. The first plop of paint held its shape so beautifully that laziness became technique — and a board full of dimensional acrylic ponds suggested its own answer: koi fish.","It's the earliest piece on this timeline for a reason. Everything after it — branding, products, furniture — comes back to the same instinct: make the thing worth a second look."], specs:{ Medium:"Painting on board", Role:"Artist", Deliverables:"Original painting" }, images:["koiworld-hero.jpg","koiworld-detail.jpg"] },
       { id:"eatdrinkmakeart", year:"2015", category:"Client Work", title:"Eat Drink Make Art", tagline:"First client brief — a flyer for Dream Love Grow.", summary:"A flyer designed for the Eat Drink Make Art event: template, final flyer, and an in-context mockup. The first time my work had a deadline, a client, and a job to do.", body:["Dream Love Grow needed a flyer for their Eat Drink Make Art event. The work covered the full small-brief arc: a reusable template, the finished flyer, and a mockup showing it in the wild.","Small project, big shift — design stopped being just expression and became communication with a purpose."], specs:{ Client:"Dream Love Grow", Role:"Graphic Designer", Deliverables:"Template, flyer, mockup" }, images:["edma-template.jpg","edma-flyer.jpg","edma-mockup.jpg"] },
-      { id:"thegrind", year:"2018", category:"Client Work", title:"The Grind", tagline:"A coffee shop identity, from sketchbook to storefront mockup.", summary:"Branding for a coffee shop: exploratory sketches, the final logo, and a mockup of the mark in context. An early sign that identity work would become a throughline.", body:["The Grind started in the sketchbook — rounds of marks and wordforms before landing on a logo that felt like the shop: no-nonsense, warm, caffeinated.","The final deliverables included the logo and a contextual mockup, showing how the identity holds up where it actually lives: on signage, on cups, in someone's hand."], specs:{ Client:"Coffee shop", Role:"Brand Designer", Deliverables:"Sketches, logo, mockup" }, images:["thegrind-sketches.jpg","thegrind-logo.jpg","thegrind-mockup.jpg"] },
+      { id:"thegrind", year:"2018", category:"Branding · Self-directed", title:"The Grind", tagline:"A coffee shop identity, from sketchbook to storefront mockup.", summary:"A self-set branding brief for an imagined coffee shop: exploratory sketches, the final logo, and a mockup of the mark in context. An early sign that identity work would become a throughline.", body:["The Grind was a self-directed exercise, not a paid brief — I wanted to know whether I could take a mark from sketchbook to something that looked like it belonged on a real storefront.","It started with rounds of marks and wordforms before landing on a logo that felt no-nonsense, warm, caffeinated. The mockup was the actual test: does the identity hold up on signage, on a cup, in someone's hand?"], specs:{ Brief:"Self-directed", Role:"Brand Designer", Deliverables:"Sketches, logo, mockup" }, images:["thegrind-sketches.jpg","thegrind-logo.jpg","thegrind-mockup.jpg"] },
       { id:"dost", year:"2018", category:"Industrial Design", title:"Dost", tagline:"First product: a phone stand made of cardboard that refused to be flimsy.", summary:"A phone and tablet stand made from cardboard with a rubber grip — documented from first sketch to final working prototype. The project where industrial design clicked.", body:["Dost is a phone and tablet stand built from cardboard with a rubber grip — a cheap material asked to do a serious job. The constraint was the point: if it works in cardboard, the thinking is sound.","The process is documented end to end: ideation sketches, form studies, a step-by-step assembly instruction graphic, and a final physical prototype that holds a device at a usable angle without sliding. It set the pattern for everything since — sketch it, build it, test it for real."], specs:{ Materials:"Cardboard, rubber grip", Role:"Industrial Designer", Deliverables:"Sketches, assembly instructions, final prototype" }, images:["dost-sketches.jpg","dost-process.jpg","dost-instructions.jpg","dost-prototype.jpg"] },
       { id:"luvmy", year:"2019", category:"Industrial Design", title:"LuvMy", tagline:"A watering can for small hands — full process, sketch to render.", summary:"A child's watering can taken through the complete design process: concept sketches, a technical drawing, a how-to-use diagram, and finished renders.", body:["LuvMy is a watering can designed for kids — scaled grip, manageable pour weight, and a form friendly enough to make watering plants feel like play rather than a chore.","This was the first project with a complete professional document trail: ideation sketches, a proper technical drawing, a how-to-use diagram for the end user, and final renders. Process became the product."], specs:{ User:"Children", Role:"Industrial Designer", Deliverables:"Sketches, technical drawing, usage diagram, renders" }, credit:"Poster: original Danbo figure photograph sourced from Google years ago — photographer unknown; full credit to the original author. Edited by Porthos. Non-commercial portfolio use.", images:["luvmy-sketches.jpg","luvmy-technical.jpg","luvmy-howto.jpg","luvmy-render.jpg","luvmy-poster.jpg"] },
       { id:"twoball", year:"2023", category:"Concept", title:"2 Ball", tagline:"Basketball, but with two balls. Chaos by design.", summary:"A game concept that puts two basketballs in play at once — mockups plus a worked-out rule set. Designing a system instead of an object.", body:["2 Ball asks a simple question: what happens to basketball when there are two balls on the court? The answer is a different game — split attention, doubled scoring threats, and entirely new defensive math.","The project includes visual mockups and detailed game rules. It marks a shift in the work: from designing objects to designing experiences and systems people play inside of."], specs:{ Type:"Game concept", Role:"Concept Designer", Deliverables:"Mockups, rule documentation" }, images:["twoball-mockup.jpg","twoball-rules.jpg"] },
       { id:"shift", year:"2025", category:"Industrial Design", title:"SHIFT", tagline:"A water bottle with attitude — back in the studio.", summary:"Sketches and renders for a water bottle concept, developed during formal industrial design training. The return to product design, sharper than before.", body:["SHIFT is a water bottle concept developed through sketching and 3D rendering — an exercise in giving a saturated product category a reason to be looked at again.","It belongs to the design-school chapter of this timeline: the same instincts from Dost and LuvMy, now backed by formal training, better tools, and faster iteration."], specs:{ Context:"Industrial design program", Role:"Industrial Designer", Deliverables:"Sketches, renders" }, images:["shift-sketches.jpg","shift-render.jpg"] },
       { id:"mila", year:"2025", category:"Industrial Design", title:"Mila", tagline:"A chair with no screws, no glue, no excuses.", summary:"A small-scale chair held together by nothing but its own joinery — no screws, no glue, no external fasteners. Sketches, renders, and video of the CNC-milled wooden pieces.", body:["Mila is a scaled chair designed around one hard rule: no screws, no glue, no external attachments of any kind. Every connection is solved in the geometry of the wood itself.","The pieces were CNC-milled and assembled by hand, documented in sketches, renders, and video. It's precision as a design language — if the joinery is right, the chair simply holds.","The quote that lets this process breathe: 'Be faithful to your taste, because nothing you really like is out of style.' — Billy Baldwin"], specs:{ Materials:"CNC-milled wood", Constraint:"Zero fasteners", Deliverables:"Sketches, renders, video" }, images:["mila-sketches.jpg","mila-render.jpg","mila-cnc.jpg"] },
       { id:"ballin", year:"2025", category:"Industrial Design", title:"Ballin", tagline:"Given the lenses. Build everything else.", summary:"Version one of activewear eyewear frames, designed around pre-supplied lenses. A masterclass in working from a fixed constraint outward.", body:["Ballin started with the one thing that couldn't change: the lenses were given. The brief was to design athletic frames around them — fit, retention, ventilation, and a look that earns a place on someone's face mid-game.","Version 1 went from sketches and renders all the way to a 3D-printed working prototype with the lenses mounted. Constraint-first design is the realest kind: most products in the world start with a part you don't control.","Next print: add magnets at the nose connector for a stronger close, and make the band adjustable — v1 sat a little tight on the head. Honest notes are part of the process."], specs:{ Constraint:"Pre-supplied lenses", Role:"Industrial Designer", Deliverables:"Sketches, renders, 3D-printed prototype (v1)" }, images:["ballin-sketches.jpg","ballin-render.jpg","ballin-moodboard.jpg","ballin-lens.jpg"] },
-      { id:"springy", year:"2026", category:"Industrial Design", title:"Springy", tagline:"A stackable stool for two. Rated for real life — tested at 300+ lbs.", summary:"A stackable two-person stool built from metal rods and ratchet straps — sketched, rendered, maquetted, and actually built. Then sat on by a 300+ lb designer. It held.", body:["Springy is a stackable stool that seats two, built from a metal rod frame with ratchet straps as the seating surface — industrial materials doing honest work. The straps give; the frame doesn't.","The process ran the full arc: sketches, renders, scale maquettes, and a real build. The final test was the most direct one available — I'm over 300 lbs, and I sat on it. It handled my weight without complaint. That's not a render claim; that's a load test.","As the most recent stop on this timeline, Springy is the thesis of the whole portfolio: design it properly, build it for real, and let the object prove itself."], specs:{ Materials:"Metal rod frame, ratchet straps", "Load tested":"300+ lbs", Deliverables:"Sketches, renders, maquettes, build photos" }, images:["springy-sketches.jpg","springy-render.jpg","springy-maquette.jpg","springy-build.jpg","springy-final.jpg"] }
+      { id:"springy", year:"2026", category:"Industrial Design", title:"Springy", tagline:"A stackable stool for two. Rated for real life — tested at 300+ lbs.", summary:"A stackable two-person stool built from metal rods and ratchet straps — sketched, rendered, maquetted, and actually built. Then sat on by a 300+ lb designer. It held.", body:["Springy is a stackable stool that seats two, built from a metal rod frame with ratchet straps as the seating surface — industrial materials doing honest work. The straps give; the frame doesn't.","The process ran the full arc: sketches, renders, scale maquettes, and a real build. The final test was the most direct one available — I'm over 300 lbs, and I sat on it. It handled my weight without complaint. That's not a render claim; that's a load test.","As the most recent stop on this timeline, Springy is the thesis of the whole portfolio: design it properly, build it for real, and let the object prove itself."], specs:{ Materials:"Metal rod frame, ratchet straps", "Load tested":"300+ lbs", Deliverables:"Sketches, renders, maquettes, build photos" }, images:["springy-final.jpg","springy-stool.jpg","springy-straps.jpg","springy-sketches.jpg","springy-render.jpg","springy-maquette.jpg","springy-build.jpg"] }
     ];
+    const VALUE = {
+      koiworld:"Made people walk closer to a flat board to check whether the water was real — the first proof that perceived depth is what earns a second look, a lesson every product since has leaned on.",
+      eatdrinkmakeart:"Approved by my manager and used for the event — and because I built a reusable template rather than a one-off, the next flyer didn't need a designer at all.",
+      thegrind:"A self-directed brief that forced the hardest identity constraint: one mark that stays readable shrunk onto a cup and blown up onto signage — so a shop owner would never need a second version.",
+      dost:"Gives someone a stable viewing angle for a phone or tablet out of cardboard and a rubber grip — a working stand at effectively no material cost, and proof the geometry holds before anyone spends on tooling.",
+      luvmy:"Made watering a plant achievable for a child: scaled grip and pour weight turned a chore an adult had to do into something a kid wants to do.",
+      twoball:"Lets a group get an entirely new game out of a court they already have — the only thing anyone needs to buy is a second ball.",
+      shift:"Makes a bottle someone actually wants to carry — the difference between a bottle that stays in a cupboard and one that leaves the house, achieved through form alone, with no added parts or cost.",
+      mila:"Zero screws, zero glue: fewer parts to source, nothing to loosen, and a flat-packable chair a customer can assemble and disassemble without tools.",
+      ballin:"Designed around lenses I didn't control — the realistic case for most products — and produced a wearable prototype plus documented v2 fixes instead of a dead end.",
+      springy:"Seats two people where one stool used to fit, and stacks out of the way when the room needs the space back — built from off-the-shelf rod and ratchet straps. Most student furniture is a render; this one was sat on by a 300+ lb designer and held."
+    };
     const GRAPHICS = [
       { file:"tshirt-01.jpg", label:"T-shirt graphic — 2025" },
       { file:"tshirt-02.jpg", label:"T-shirt graphic — 2025" },
@@ -382,9 +490,8 @@ class Component extends DCLogic {
       { file:"logo-05.jpg", label:"Logo work" }
     ];
     const VAULT_PROJECTS = [
-      { title:"No Small Feat", year:"2025–", blurb:"A premium Canadian sock brand for large feet (US 13–23). Full brand system, two collections, a two-layer knitted message system, custom fabric blend, kraft tube packaging, and a one-bought-one-donated give-back model. Manufacturer outreach in progress.", image:"vault-nsf-site.png", link:"https://nosmallfeat.ca", linkLabel:"nosmallfeat.ca →" },
-      { title:"Arey Pagal", year:"2026–", blurb:"A small soda lab in Markham, ON — every soda made and brewed in house. The whole menu is two lines, One Pour and Three Pours, served dealer's choice. Full brand identity and site in the works.", image:"vault-areypagal-page.png", link:"https://iamporthos.github.io/areypagal", linkLabel:"check us out →" },
       { title:"Greatfull", year:"2026–", blurb:"A takeout-only breakfast burrito operation in Markham. One size, $18 tax in, ninety a week Friday through Sunday — then we're out. Hand-folded omulet in a three-day sourdough tortilla, three permanent flavours plus a monthly wildcard, all vegetarian. Pay-it-forward built in: three to five given away daily.", image:"vault-greatfull-site.png", link:"https://iamporthos.github.io/greatfull/", linkLabel:"check us out →" },
+      { title:"Arey Pagal", year:"2026–", blurb:"A small soda lab in Markham, ON — every soda made and brewed in house. The whole menu is two lines, One Pour and Three Pours, served dealer's choice. Full brand identity and site in the works.", image:"vault-areypagal.png", link:"https://iamporthos.github.io/areypagal", linkLabel:"check us out →" },
       { title:"Circle", year:"2025", blurb:"A voice-note friendship app for staying genuinely close to a small circle of people. Landing page and interactive demo fully built.", image:"vault-circle-site.png", link:"https://iamporthos.github.io/circle/", linkLabel:"try the live demo →" }
     ];
 
@@ -404,12 +511,12 @@ class Component extends DCLogic {
 
     const projects = PROJECTS.map((p, i) => {
       const L = i % 2 === 0;
-      const rot = L ? "rotate(-1.6deg)" : "rotate(1.8deg)";
       return {
         k: "p" + i, num: ["one","two","three","four","five","six","seven","eight","nine","ten"][i],
         year: p.year, category: p.category, title: p.title, summary: p.summary,
         img: "images/" + p.images[0],
-        blobStyle: "border-radius:" + BLOBS[i % 4] + ";transform:" + rot,
+        blobStyle: "border-radius:" + BLOBS[i % 4],
+        value: VALUE[p.id] || "",
         floatDelay: "animation-delay:" + (-(i * 1.3)) + "s",
         mediaStyle: L ? "order:1;justify-self:end;width:100%;max-width:470px" : "order:2;justify-self:start;width:100%;max-width:470px",
         textStyle: L ? "order:2;justify-self:start;text-align:left;width:100%;max-width:500px" : "order:1;justify-self:end;text-align:right;width:100%;max-width:500px",
@@ -423,9 +530,9 @@ class Component extends DCLogic {
     const SHAPES = ["50%", BLOBS[0], "999px", BLOBS[2], "50%", BLOBS[1], BLOBS[3], "999px"];
     const SIZES = [210, 240, 185, 225, 195, 250, 205, 230];
     const OFFS = [0, 26, -16, 18, -10, 22, -20, 8];
-    const ROTS = [-2, 1.5, -1, 2, -1.5, 1, 2, -2];
+    const ROTS = [0, 0, 0, 0, 0, 0, 0, 0];
     const graphics = GRAPHICS.map((g, i) => {
-      const base = "rotate(" + ROTS[i % 8] + "deg) translateY(" + OFFS[i % 8] + "px)";
+      const base = "translateY(" + OFFS[i % 8] + "px)";
       return {
         k: "g" + i, src: "images/" + g.file, label: g.label,
         itemStyle: "width:" + SIZES[i % 8] + "px;aspect-ratio:1;border-radius:" + SHAPES[i % 8] + ";" + rv("g" + i, base),
@@ -439,7 +546,7 @@ class Component extends DCLogic {
     }));
 
     const op = this.state.open ? PROJECTS.find((p) => p.id === this.state.open) : null;
-    let openHead = "", openTitle = "", openTagline = "", openSpecs = [], openBody = [], openImages = [], openCredit = "";
+    let openHead = "", openTitle = "", openTagline = "", openSpecs = [], openBody = [], openImages = [], openCredit = "", openValue = "";
     let hasPrev = false, hasNext = false, openPrevLabel = "", openNextLabel = "", openPrevClick = null, openNextClick = null;
     if (op) {
       const idx = PROJECTS.indexOf(op);
@@ -449,6 +556,7 @@ class Component extends DCLogic {
       openSpecs = Object.entries(op.specs).map(([k, v]) => ({ k, v }));
       openBody = op.body.slice();
       openCredit = op.credit || "";
+      openValue = VALUE[op.id] || "";
       openImages = op.images.map((im, k) => ({
         src: "images/" + im, alt: op.title, fig: "fig. " + (k + 1) + " of " + op.images.length,
         onClick: () => this.setState({ lightbox: "images/" + im })
@@ -458,15 +566,27 @@ class Component extends DCLogic {
       if (next) { hasNext = true; openNextLabel = next.title + " (" + next.year + ") →"; openNextClick = () => this.setState({ open: next.id }); }
     }
 
+    const featStrip = ["springy-stool.jpg","springy-straps.jpg","springy-sketches.jpg","springy-maquette.jpg"].map((f) => ({
+      src: "images/" + f,
+      onClick: () => this.setState({ lightbox: "images/" + f })
+    }));
+
+    const flows = [
+      { k:"f1", kicker:"design flow 01", title:"Mila — constraint to joinery", blurb:"One hard rule: no screws, no glue, no fasteners of any kind. Every connection solved in the geometry of the wood, then CNC-milled and hand-assembled. Sketches → renders → milled parts.", img:"images/mila-cnc.jpg", isInternal:true, isExternal:false, cta:"walk the process →", href:"", onOpen:() => this.setState({ open:"mila" }) },
+      { k:"f2", kicker:"design flow 02", title:"No Small Feat — brand system", blurb:"Designing for a body measurement the market ignores. Sizing research on US 13–23 fed a two-layer knitted message system, a custom fabric blend, kraft tube packaging, and a one-bought-one-donated model — brand and product decided together.", img:"images/vault-nsf-site.png", isInternal:false, isExternal:true, cta:"see the brand →", href:"https://nosmallfeat.ca", onOpen:null }
+    ].map((f) => ({ ...f, reveal: rv(f.k) }));
+
     return {
       accent, showMarquee, ambient,
       projects, graphics, vault,
+      headFeat: rv("fh"), featReveal: rv("f0"), featStrip, flows,
+      featOpen: () => this.setState({ open: "springy" }),
       headJourney: rv("hj"), headGfx: rv("hg"), headVault: rv("hv"), headFoot: rv("hf"),
       vaultClosed: !this.state.vault, vaultOpen: this.state.vault, err: this.state.err,
       inputRef: this.inputRef,
       onUnlock: () => this.tryUnlock(),
       onKey: (e) => { if (e.key === "Enter") this.tryUnlock(); },
-      hasOpen: !!op, openHead, openTitle, openTagline, openSpecs, openBody, openImages,
+      hasOpen: !!op, openHead, openTitle, openTagline, openSpecs, openBody, openImages, openValue,
       hasCredit: !!openCredit, openCredit,
       hasPrev, hasNext, openPrevLabel, openNextLabel, openPrevClick, openNextClick,
       closeReader: () => this.setState({ open: null }),
