@@ -13,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
   html{scroll-behavior:smooth;}
-  body{margin:0;background:#14301E;}
+  html,body{margin:0;background:#14301E;overflow-x:clip;max-width:100%;}
   *{box-sizing:border-box;}
   a{color:#C9A84C;}a:hover{color:#E4C56A;}
   @keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
@@ -39,7 +39,7 @@
 </style>
 </helmet>
 
-<div style="background:radial-gradient(1100px 700px at 88% -8%, #1C452B 0%, rgba(28,69,43,0) 60%),radial-gradient(900px 700px at -10% 42%, #183B24 0%, rgba(24,59,36,0) 55%),#14301E;color:#ECE3C0;font-family:'Archivo',sans-serif;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;min-height:100vh;position:relative;overflow-x:hidden">
+<div style="background:radial-gradient(1100px 700px at 88% -8%, #1C452B 0%, rgba(28,69,43,0) 60%),radial-gradient(900px 700px at -10% 42%, #183B24 0%, rgba(24,59,36,0) 55%),#14301E;color:#ECE3C0;font-family:'Archivo',sans-serif;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;min-height:100vh;position:relative">
 <div style="--accent:{{ accent }}">
 
   <sc-if value="{{ ambient }}" hint-placeholder-val="{{ true }}">
@@ -122,11 +122,18 @@
             </div>
           </div>
           <div style="display:flex;gap:10px;margin-top:28px">
-            <sc-for list="{{ featStrip }}" as="s">
-              <button onClick="{{ s.onClick }}" style="flex:1;padding:0;border:none;background:#0C1E13;border-radius:16px;overflow:hidden;cursor:zoom-in;aspect-ratio:1;box-shadow:0 12px 30px rgba(0,0,0,.3)">
-                <img src="{{ s.src }}" alt="Springy process" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s ease" style-hover="transform:scale(1.08)">
-              </button>
-            </sc-for>
+            <button onClick="{{ stripA }}" style="flex:1;padding:0;border:none;background:#0C1E13;border-radius:16px;overflow:hidden;cursor:zoom-in;aspect-ratio:1;box-shadow:0 12px 30px rgba(0,0,0,.3)">
+              <img src="images/springy-stool.jpg" alt="Springy stool, built" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s ease" style-hover="transform:scale(1.08)">
+            </button>
+            <button onClick="{{ stripB }}" style="flex:1;padding:0;border:none;background:#0C1E13;border-radius:16px;overflow:hidden;cursor:zoom-in;aspect-ratio:1;box-shadow:0 12px 30px rgba(0,0,0,.3)">
+              <img src="images/springy-straps.jpg" alt="Ratchet strap seat detail" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s ease" style-hover="transform:scale(1.08)">
+            </button>
+            <button onClick="{{ stripC }}" style="flex:1;padding:0;border:none;background:#0C1E13;border-radius:16px;overflow:hidden;cursor:zoom-in;aspect-ratio:1;box-shadow:0 12px 30px rgba(0,0,0,.3)">
+              <img src="images/springy-sketches.jpg" alt="Springy sketches" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s ease" style-hover="transform:scale(1.08)">
+            </button>
+            <button onClick="{{ stripD }}" style="flex:1;padding:0;border:none;background:#0C1E13;border-radius:16px;overflow:hidden;cursor:zoom-in;aspect-ratio:1;box-shadow:0 12px 30px rgba(0,0,0,.3)">
+              <img src="images/springy-maquette.jpg" alt="Springy scale maquette" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s ease" style-hover="transform:scale(1.08)">
+            </button>
           </div>
           <button onClick="{{ featOpen }}" style="display:inline-block;margin-top:24px;font-family:'Instrument Serif',serif;font-style:italic;font-size:20px;color:var(--accent,#C9A84C);background:none;border:none;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px">read the full build →</button>
         </div>
@@ -343,7 +350,7 @@
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:&quot;100%&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#C9A84C&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#C9A84C&quot;,&quot;#C9884C&quot;,&quot;#B6A24C&quot;,&quot;#CBA890&quot;]},&quot;showMarquee&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;ambientMotion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
 class Component extends DCLogic {
   inputRef = React.createRef();
-  state = { revealed: new Set(), open: null, lightbox: null, vault: false, err: "" };
+  state = { revealed: new Set(), ioReady: false, open: null, lightbox: null, vault: false, err: "" };
 
   componentDidMount() {
     this._reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -360,13 +367,17 @@ class Component extends DCLogic {
         let ch = false;
         ents.forEach((e) => {
           const k = e.target.dataset.k;
-          if (e.isIntersecting && !s.has(k)) { s.add(k); ch = true; }
-          else if (!e.isIntersecting && s.has(k)) { s.delete(k); ch = true; }
+          if (e.isIntersecting && !s.has(k)) {
+            s.add(k); ch = true;
+            this._io.unobserve(e.target);
+          }
         });
-        if (ch) this.setState({ revealed: s });
+        if (ch) this.setState({ revealed: s, ioReady: true });
       }, { threshold: 0.08, rootMargin: "-4% 0px -4% 0px" });
       document.querySelectorAll("[data-reveal]").forEach((el) => this._io.observe(el));
-      this._safety = setTimeout(() => { if (this.state.revealed.size === 0) revealAll(); }, 4500);
+      this._onFirstInteract = () => revealAll();
+      window.addEventListener("keydown", this._onFirstInteract, { once: true });
+      this._safety = setTimeout(revealAll, 9000);
     }
     this._driftEls = [];
     if (!this._reduce && (this.props.ambientMotion !== false)) {
@@ -437,6 +448,7 @@ class Component extends DCLogic {
     if (this._measure) window.removeEventListener("resize", this._measure);
     if (this._io) this._io.disconnect();
     if (this._safety) clearTimeout(this._safety);
+    if (this._onFirstInteract) window.removeEventListener("keydown", this._onFirstInteract);
     if (this._raf) cancelAnimationFrame(this._raf);
   }
 
@@ -506,9 +518,7 @@ class Component extends DCLogic {
       "54% 46% 42% 58% / 46% 54% 58% 42%",
       "46% 54% 58% 42% / 54% 46% 44% 56%"
     ];
-    const rv = (k, base) => revealed.has(k)
-      ? "opacity:1;transform:" + (base || "none") + ";filter:none"
-      : "opacity:0;transform:" + (base ? base + " " : "") + "translateY(56px);filter:blur(12px)";
+    const rv = (k, base) => "opacity:1;transform:" + (base || "none") + ";filter:none";
 
     const projects = PROJECTS.map((p, i) => {
       const L = i % 2 === 0;
@@ -567,10 +577,7 @@ class Component extends DCLogic {
       if (next) { hasNext = true; openNextLabel = next.title + " (" + next.year + ") →"; openNextClick = () => this.setState({ open: next.id }); }
     }
 
-    const featStrip = ["springy-stool.jpg","springy-straps.jpg","springy-sketches.jpg","springy-maquette.jpg"].map((f) => ({
-      src: "images/" + f,
-      onClick: () => this.setState({ lightbox: "images/" + f })
-    }));
+    const lb = (f) => () => this.setState({ lightbox: "images/" + f });
 
     const flows = [
       { k:"f1", kicker:"design flow 01", title:"Mila — constraint to joinery", blurb:"One hard rule: no screws, no glue, no fasteners of any kind. Every connection solved in the geometry of the wood, then CNC-milled and hand-assembled. Sketches → renders → milled parts.", img:"images/mila-cnc.jpg", isInternal:true, isExternal:false, cta:"walk the process →", href:"", onOpen:() => this.setState({ open:"mila" }) },
@@ -580,7 +587,9 @@ class Component extends DCLogic {
     return {
       accent, showMarquee, ambient,
       projects, graphics, vault,
-      headFeat: rv("fh"), featReveal: rv("f0"), featStrip, flows,
+      headFeat: rv("fh"), featReveal: rv("f0"), flows,
+      stripA: lb("springy-stool.jpg"), stripB: lb("springy-straps.jpg"),
+      stripC: lb("springy-sketches.jpg"), stripD: lb("springy-maquette.jpg"),
       featOpen: () => this.setState({ open: "springy" }),
       headJourney: rv("hj"), headGfx: rv("hg"), headVault: rv("hv"), headFoot: rv("hf"),
       vaultClosed: !this.state.vault, vaultOpen: this.state.vault, err: this.state.err,
