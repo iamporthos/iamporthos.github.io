@@ -169,7 +169,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
 <div>
 <div class="fig"><span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
 <div class="bar m"><span>Fig. 00 — Springy, 2026</span><span style="color:var(--r)">Stretch test: ongoing</span></div>
-<div id="stretch" aria-label="Springy stool. Drag it to stretch it."><img src="images/springy-stretch.jpg" alt="Springy, a two-person stool with a metal rod frame and green ratchet-strap seat" draggable="false"></div>
+<div id="stretch" aria-label="Springy stool. Drag it to stretch it."><img src="images/springy-stretch.jpg" onerror="this.onerror=null;this.src='images/springy-final.jpg'" alt="Springy, a two-person stool with a metal rod frame and green ratchet-strap seat" draggable="false"></div>
 </div>
 <div class="hint hand"><span>↑</span><span>Grab it. Stretch it. It always bounces back, like me after design feedback.</span></div>
 </div>
@@ -323,7 +323,7 @@ var tex=gl.createTexture(),ti=new Image();
 ti.onload=function(){gl.bindTexture(gl.TEXTURE_2D,tex);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
 gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,ti);gl.uniform1i(gl.getUniformLocation(pr,'tex'),0);
 layout();draw();ready=true;box.classList.add('live');setTimeout(poke,900);setInterval(poke,6500);};
-ti.src=img.getAttribute('src');
+ti.onerror=function(){if(ti.src.indexOf('springy-final')<0)ti.src='images/springy-final.jpg';};ti.src=img.getAttribute('src');
 if(window.ResizeObserver)new ResizeObserver(function(){if(ready){layout();draw();}}).observe(box);
 })();
 
